@@ -1,0 +1,4 @@
+.video-player{
+    grid-area: video-player;
+    background: green;
+}

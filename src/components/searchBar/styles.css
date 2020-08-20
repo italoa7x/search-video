@@ -1,0 +1,4 @@
+.search-bar{
+    grid-area: search-bar;
+    background: red;
+}
