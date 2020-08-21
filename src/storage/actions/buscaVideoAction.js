@@ -1,5 +1,5 @@
 import youtubeSearch from 'youtube-api-v3-search';
-import { ytbApi } from '../../apiKey';
+import ytbApi from '../../apiKey';
 
 const API_KEY = ytbApi;
 
@@ -9,14 +9,15 @@ const API_KEY = ytbApi;
 //  retorna lista de video
 //  retorna o erro
 
-export function iniciaBuscaDeVideo(){ //inicia a busca de vídeo
+function iniciaBuscaDeVideo () { //inicia a busca de vídeo
     return {
         type: 'INICIA_BUSCA_DE_VIDEO',
         carregando: true,
         erro: false
     }
 }
-export function buscaVideoSucesso(videos){ //se a busca deu certo, retorna os videos
+
+function buscaVideoSucesso (videos) { //se a busca deu certo, retorna os videos
     return {
         type: 'BUSCA_VIDEO_SUCESSO',
         videos: videos,
@@ -24,14 +25,14 @@ export function buscaVideoSucesso(videos){ //se a busca deu certo, retorna os vi
         erro: false
     }
 }
-export function buscaVideoError(){
+function buscaVideoError(){
     return {
         type: 'BUSCA_VIDEO_ERROR',
         carregando: false,
         erro: true
     }
 }
-export function buscaVideo(termo) { //busca um video pelo termo passado como parametro
+export default function buscaVideo(termo) { //busca um video pelo termo passado como parametro
     return dispatch => {
         dispatch(iniciaBuscaDeVideo())
         youtubeSearch(API_KEY, {q: termo})

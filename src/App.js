@@ -1,16 +1,22 @@
 import React from "react";
-import SearchBar from './components/searchBar';
-import VideoPlayer from './components/videoPlayer';
-import VideoList from './components/videoList';
+import { Provider } from "react-redux";
+
+import store from './storage';
+import SearchBar from "./components/searchBar";
+import VideoPlayer from "./components/videoPlayer";
+import VideoList from "./components/videoList";
+
 import "./App.css";
 
 function App() {
   return (
-  <div className="container">
-    <SearchBar/>
-    <VideoPlayer/>
-    <VideoList/>
-  </div>
+    <Provider store={store}>
+      <div className="container">
+        <SearchBar />
+        <VideoPlayer />
+        <VideoList />
+      </div>
+    </Provider>
   );
 }
 

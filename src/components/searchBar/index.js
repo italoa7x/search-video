@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import "./styles.css";
 import { Segment, Input } from "semantic-ui-react";
+import { connect } from 'react-redux';
+import buscaVideo from '../../storage/actions/buscaVideoAction';
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
   buscaVideo = (e) => {
     if(e.keyCode === 13){
-      const nomeVideo = e.target.value;
-      console.log(nomeVideo);
+      const termoVideo = e.target.value;
+      //passa o termo para ser buscado
+      this.props.buscaVideo(termoVideo);
     }
   };
   render() {
@@ -24,3 +27,11 @@ export default class SearchBar extends Component {
     );
   }
 }
+//função que mapeia o component para receber o termo e buscar o video
+const mapDispatchToProps = (dispatch) => {
+  return {
+    buscaVideo: (termo) => dispatch(buscaVideo(termo))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);
