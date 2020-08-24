@@ -6,7 +6,7 @@ const INITIAL_STATE = {
   erro: false,
 };
 //verifica qual foi o tipo de action que foi passada na busca
-export default function buscar(state = INITIAL_STATE, action) {
+export default function buscar (state = INITIAL_STATE, action) {
   switch (action.type) {
     case "INICIA_BUSCA_DE_VIDEO": // se a busca do video for iniciada, é retornado uma action de inicio
       return {
