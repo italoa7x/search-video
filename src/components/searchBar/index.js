@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 import buscaVideo from '../../storage/actions/buscaVideoAction';
 
 class SearchBar extends Component {
+  constructor(props){
+    super(props);
+    this.props.buscaVideo("programação em javascript");
+  }
   buscaVideo = (e) => {
     if(e.keyCode === 13){
       const termoVideo = e.target.value;

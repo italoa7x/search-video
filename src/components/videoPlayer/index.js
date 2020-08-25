@@ -19,6 +19,8 @@ class VideoPlayer extends Component {
         {this.props.video.id && (
           <div>
             <Embed id={this.props.video.id.videoId} source="youtube" />
+            <p className="video-title">{this.props.video.snippet.title}</p>
+            <p className="video-description">{this.props.video.snippet.description}</p>
           </div>
         )}
       </div>
